@@ -8,3 +8,4 @@ TipoLista* criaListaPopulada(int);
 TipoLista* clonaLista(TipoLista*);
 
 TipoLista* divideLista(TipoLista*, int);
+TipoLista* inverterCelulas(TipoLista*, int, int );
