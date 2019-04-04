@@ -1,11 +1,4 @@
-typedef struct {
-	int chave;
-} TipoItem; //tipo dos itens que compõem a lista
-
-typedef struct celula {
-	TipoItem item;
-	struct celula *proximo;
-} TipoCelula; //tipo das células com os itens da lista
+#include "../node.h"
 
 typedef struct {
 	TipoCelula *primeiro;
