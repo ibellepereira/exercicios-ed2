@@ -10,7 +10,10 @@
 
 TipoLista* criaListaPopulada(int);
 TipoLista* clonaLista(TipoLista*);
+TipoFila* criaFilaPopulada(int);
+TipoPilha* criaPilhaPopulada(int);
 
 TipoLista* divideLista(TipoLista*, int);
-TipoLista* inverterCelulas(TipoLista*, int, int);
+TipoLista* inverteCelulas(TipoLista*, int, int);
 TipoFila* inverteFila(TipoFila*);
+void imprimePilhaPorInsercao(TipoPilha*);
