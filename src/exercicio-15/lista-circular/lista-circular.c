@@ -26,6 +26,27 @@ TipoItem* removeListaCircular(TipoLista* lista) {
 	return item;
 }
 
+TipoItem* removeListaCircularPorPos(TipoLista* lista, int pos) {
+	TipoItem* item = NULL;
+	if (!testaListaVazia(lista)) {
+
+		TipoCelula* celula;
+		int i;
+		for(i=0, celula = lista->primeiro; i<=pos && celula != NULL; i++, celula = celula->proximo){
+			if(i+1 == pos){
+				TipoCelula* celulaRm = celula->proximo;
+				item = (TipoItem*) malloc(sizeof(TipoItem));
+				*item = celulaRm->item;
+
+				celula->proximo = celula->proximo->proximo;
+
+				free(celulaRm);
+			}
+		}
+	}
+	return item;
+}
+
 void imprimeListaCircular(TipoLista* lista) {
 	TipoCelula* celula;
 
