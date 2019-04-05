@@ -1,3 +1,6 @@
+#ifndef FILA_H_
+#define FILA_H_ "fila.h"
+
 #include "../node.h"
 
 typedef struct {
@@ -10,3 +13,5 @@ void imprimeFila(TipoFila*);
 void insereFila(TipoFila*, TipoItem);
 void removeFila(TipoFila*, TipoItem*);
 int testaFilaVazia(TipoFila*);
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef PILHA_H_
+#define PILHA_H_ "pilha.h"
+
 #include "../node.h"
 
 typedef struct {
@@ -10,3 +13,5 @@ void imprimePilha(TipoPilha*);
 void inserePilha(TipoPilha*, TipoItem);
 void removePilha(TipoPilha*, TipoItem*);
 int testaPilhaVazia(TipoPilha*);
+
+#endif
