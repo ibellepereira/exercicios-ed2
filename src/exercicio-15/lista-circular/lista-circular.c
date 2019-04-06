@@ -3,9 +3,10 @@
 void insereListaCircular(TipoLista* lista, TipoItem item) {
 	TipoCelula *celula = (TipoCelula*) malloc(sizeof(TipoCelula));
 	celula->item = item;
-	celula->proximo = lista->primeiro;
 
 	lista->ultimo->proximo = celula;
+	celula->proximo = lista->primeiro->proximo;
+
 	lista->ultimo = celula;
 }
 
@@ -16,10 +17,11 @@ TipoItem* removeListaCircular(TipoLista* lista) {
 		TipoCelula* celula = lista->primeiro;
 		*item = celula->item;
 
-		lista->primeiro = celula->proximo;
+		lista->primeiro->proximo = celula->proximo;
 		lista->ultimo->proximo = lista->primeiro;
 
-		if(celula->proximo == celula) lista->ultimo = lista->primeiro;
+		if (celula->proximo == celula)
+			lista->ultimo = lista->primeiro;
 
 		free(celula);
 	}
@@ -28,22 +30,29 @@ TipoItem* removeListaCircular(TipoLista* lista) {
 
 TipoItem* removeListaCircularPorPos(TipoLista* lista, int pos) {
 	TipoItem* item = NULL;
-	if (!testaListaVazia(lista)) {
 
-		TipoCelula* celula;
-		int i;
-		for(i=0, celula = lista->primeiro; i<=pos && celula != NULL; i++, celula = celula->proximo){
-			if(i+1 == pos){
-				TipoCelula* celulaRm = celula->proximo;
-				item = (TipoItem*) malloc(sizeof(TipoItem));
-				*item = celulaRm->item;
+	TipoCelula* celula;
+	int i;
+	for (i = -1, celula = lista->primeiro; i < pos && celula != lista->ultimo;
+			i++, celula = celula->proximo) {
+		if (i + 1 == pos) {
+			TipoCelula* celulaRm = celula->proximo;
+			item = (TipoItem*) malloc(sizeof(TipoItem));
+			*item = celulaRm->item;
 
-				celula->proximo = celula->proximo->proximo;
+			celula->proximo = celulaRm->proximo;
 
-				free(celulaRm);
+			if(celulaRm == lista->ultimo){
+				lista->ultimo = celula;
 			}
+
+			if(celulaRm->proximo == celulaRm){
+				lista->ultimo = lista->primeiro;
+			}
+			free(celulaRm);
 		}
 	}
+
 	return item;
 }
 
