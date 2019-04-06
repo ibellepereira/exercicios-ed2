@@ -1,7 +1,7 @@
 #ifndef LISTA_DUPLA_H_
 #define LISTA_DUPLA_H_
 
-#include "../../lista/lista.h"
+#include "../../tads/lista/lista.h"
 
 typedef struct celulaDupla {
 	TipoItem item;

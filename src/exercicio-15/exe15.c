@@ -8,4 +8,16 @@ tipos:
 - lista circular duplamente encadeada.
 */
 
+void imprimeListaEncadeada(TipoLista* lista) {
+	TipoCelula* celula;
+
+	if (!testaListaVazia(lista)) {
+		celula = lista->primeiro;
+
+		do {
+			celula = celula->proximo;
+			printf("%i ", celula->item.chave);
+		} while (celula != lista->ultimo);
+	}
+}
 

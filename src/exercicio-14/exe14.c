@@ -4,7 +4,7 @@
  encadeada.
  */
 
-TipoLista* inverterCelulas(TipoLista* lista, int pos1, int pos2) {
+TipoLista* inverteCelulas(TipoLista* lista, int pos1, int pos2) {
 	TipoLista* nova = clonaLista(lista);
 
 	TipoCelula* anteriorCelulaPos1 = NULL;

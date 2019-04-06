@@ -56,15 +56,4 @@ TipoItem* removeListaCircularPorPos(TipoLista* lista, int pos) {
 	return item;
 }
 
-void imprimeListaCircular(TipoLista* lista) {
-	TipoCelula* celula;
 
-	if (!testaListaVazia(lista)) {
-		celula = lista->primeiro;
-
-		do {
-			celula = celula->proximo;
-			printf("%i ", celula->item.chave);
-		} while (celula != lista->ultimo);
-	}
-}

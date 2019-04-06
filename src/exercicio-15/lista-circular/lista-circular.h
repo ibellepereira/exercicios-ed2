@@ -1,6 +1,5 @@
-#include "../../lista/lista.h"
+#include "../../tads/lista/lista.h"
 
 void insereListaCircular(TipoLista*, TipoItem);
 TipoItem* removeListaCircular(TipoLista*);
-void imprimeListaCircular(TipoLista*);
 TipoItem* removeListaCircularPorPos(TipoLista*, int);
