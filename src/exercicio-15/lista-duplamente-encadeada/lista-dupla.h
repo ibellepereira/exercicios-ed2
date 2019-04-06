@@ -11,5 +11,6 @@ typedef struct celulaDupla {
 
 void insereListaDuplamenteEncadeada(TipoLista*, TipoItem);
 TipoItem* removeListaDuplamenteEncadeada(TipoLista*);
+TipoItem* removeListaDuplamenteEncadeadaPorPos(TipoLista*, int);
 
 #endif

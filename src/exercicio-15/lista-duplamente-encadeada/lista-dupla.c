@@ -36,3 +36,31 @@ TipoItem* removeListaDuplamenteEncadeada(TipoLista* lista) {
 	}
 	return item;
 }
+
+TipoItem* removeListaDuplamenteEncadeadaPorPos(TipoLista* lista, int pos) {
+	TipoItem* item = NULL;
+
+	TipoCelulaDupla* celula, *celulaRm;
+	int i;
+	for (i = -1, celula = lista->primeiro; i < pos && celula->proximo != NULL;
+			i++, celula = celula->proximo) {
+		if (i + 1 == pos) {
+			celulaRm = celula->proximo;
+
+			item = (TipoItem*) malloc(sizeof(TipoItem));
+			*item = celula->proximo->item;
+
+			if(celulaRm == lista->ultimo){
+				lista->ultimo = celula;
+				celula->proximo = NULL;
+			}else{
+				celula->proximo = celulaRm->proximo;
+				celulaRm->proximo->anterior = celula;
+			}
+
+			free(celulaRm);
+		}
+	}
+
+	return item;
+}
