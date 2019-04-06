@@ -7,3 +7,4 @@
 
 void insereListaCircularDuplamenteEncadeada(TipoLista*, TipoItem);
 TipoItem* removeListaCircularDuplamenteEncadeada(TipoLista*);
+TipoItem* removeListaCircularDuplamenteEncadeadaPorPos(TipoLista*, int);
