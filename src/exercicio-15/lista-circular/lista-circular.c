@@ -14,16 +14,15 @@ TipoItem* removeListaCircular(TipoLista* lista) {
 	TipoItem* item = NULL;
 	if (!testaListaVazia(lista)) {
 		item = (TipoItem*) malloc(sizeof(TipoItem));
-		TipoCelula* celula = lista->primeiro;
+		TipoCelula* celula = lista->primeiro->proximo;
 		*item = celula->item;
 
 		lista->primeiro->proximo = celula->proximo;
-		lista->ultimo->proximo = lista->primeiro;
 
 		if (celula->proximo == celula)
 			lista->ultimo = lista->primeiro;
 
-		free(celula);
+		free(celula->proximo);
 	}
 	return item;
 }
