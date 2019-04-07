@@ -21,4 +21,22 @@ void imprimePilhaPorInsercao(TipoPilha* pilha){
 		inserePilha(pilha, item);
 	}
 
+	free(aux);
 }
+
+
+int execute18(void) {
+	const int QTD_ITEMS = 10;
+
+	printf("==== EXERCÍCIO 18 ====\n");
+	TipoPilha* pilha = criaPilhaPopulada(QTD_ITEMS);
+	printf("Pilha:\n");
+	imprimePilha(pilha);
+	printf("\nPilha ordenada por inserção: \n");
+	imprimePilhaPorInsercao(pilha);
+
+	free(pilha);
+
+	return EXIT_SUCCESS;
+}
+

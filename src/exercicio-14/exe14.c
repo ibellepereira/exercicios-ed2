@@ -1,4 +1,5 @@
 #include "../main.h"
+
 /*
  14 - Escreva uma função que inverta a posição de dois nós de uma lista
  encadeada.
@@ -41,4 +42,28 @@ TipoLista* inverteCelulas(TipoLista* lista, int pos1, int pos2) {
 	}
 
 	return nova;
+}
+
+int execute14(void) {
+	const int QTD_ITEMS = 10;
+	const int RANGE = 11;
+
+	int pos1 = rand() % RANGE;
+	int pos2 = rand() % RANGE;
+
+	printf("==== EXERCÍCIO 14 ====\n");
+	TipoLista* lista = criaListaPopulada(QTD_ITEMS);
+	TipoLista* listaNosInvertidos = inverteCelulas(lista, pos1, pos2);
+
+	printf("\nLista:\n");
+	imprimeLista(lista);
+
+	printf("\nLista com nós invertidos nas posições: %i e %i\n", pos1, pos2);
+
+	imprimeLista(listaNosInvertidos);
+
+	free(lista);
+	free(listaNosInvertidos);
+
+	return EXIT_SUCCESS;
 }

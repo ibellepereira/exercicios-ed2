@@ -16,6 +16,7 @@
 TipoLista* criaListaPopulada(int);
 TipoLista* clonaLista(TipoLista*);
 TipoFila* criaFilaPopulada(int);
+TipoFila* clonaFila(TipoFila*);
 TipoPilha* criaPilhaPopulada(int);
 TipoItem criaItem();
 
@@ -25,5 +26,11 @@ TipoLista* inverteCelulas(TipoLista*, int, int);
 void imprimeListaEncadeada(TipoLista*);
 TipoFila* inverteFila(TipoFila*);
 void imprimePilhaPorInsercao(TipoPilha*);
+
+int execute09(void);
+int execute14(void);
+int execute15(void);
+int execute18(void);
+int execute22(void);
 
 #endif
