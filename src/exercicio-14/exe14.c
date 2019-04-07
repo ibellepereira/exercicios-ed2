@@ -12,14 +12,13 @@ TipoLista* inverteCelulas(TipoLista* lista, int pos1, int pos2) {
 
 	int i;
 	TipoCelula* celula;
-	for (i = -1, celula = nova->primeiro; celula != NULL; i++, celula = celula->proximo) {
+	for (i = -1, celula = nova->primeiro; celula->proximo != NULL ; i++, celula = celula->proximo) {
+		if (i + 1 == pos1 || i+1 == pos2){
+			if(anteriorCelulaPos1 == NULL) anteriorCelulaPos1 = celula;
+			else anteriorCelulaPos2 = celula;
+		}
 
-		if (i + 1 == pos1)
-			anteriorCelulaPos1 = celula;
-		if (i + 1 == pos2)
-			anteriorCelulaPos2 = celula;
-
-		if (i >= pos1 && i >= pos2)
+		if(i + 1 >= pos1 && i + 1 >= pos2)
 			break;
 	}
 
@@ -28,10 +27,15 @@ TipoLista* inverteCelulas(TipoLista* lista, int pos1, int pos2) {
 		celula->item = anteriorCelulaPos1->proximo->item;
 		celula->proximo = anteriorCelulaPos2->proximo->proximo;
 
-		anteriorCelulaPos2->proximo->proximo =
-				anteriorCelulaPos1->proximo->proximo;
+		if(abs(pos1-pos2) == 1)
+			anteriorCelulaPos2->proximo->proximo = celula;
+		else
+			anteriorCelulaPos2->proximo->proximo = anteriorCelulaPos1->proximo->proximo;
+
 		anteriorCelulaPos1->proximo = anteriorCelulaPos2->proximo;
-		anteriorCelulaPos2->proximo = celula;
+
+		if(abs(pos1-pos2) != 1)
+			anteriorCelulaPos2->proximo = celula;
 
 		free(anteriorCelulaPos1->proximo);
 	}
