@@ -19,7 +19,7 @@ TipoFila* criaFilaPopulada(int);
 TipoPilha* criaPilhaPopulada(int);
 TipoItem criaItem();
 
-TipoLista* divideLista(TipoLista*, int);
+TipoLista** divideLista(TipoLista*, int);
 TipoLista* inverteCelulas(TipoLista*, int, int);
 void imprimeListaEncadeada(TipoLista*);
 TipoFila* inverteFila(TipoFila*);

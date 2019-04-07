@@ -6,18 +6,24 @@ a lista em duas, de forma que a segunda comece no primeiro nó logo após a
 primeira ocorrência de n na lista original.
 */
 
-TipoLista* divideLista(TipoLista* lista, int valor){
+TipoLista** divideLista(TipoLista* lista, int valor){
+	TipoLista** listasDividas = (TipoLista**) malloc(sizeof(TipoLista*)*2);
+
+	TipoLista* primeiraLista = clonaLista(lista);
 	TipoLista* segundaLista = criaListaPopulada(0);
 
 	TipoCelula* celula;
-	for(celula = lista->primeiro->proximo; celula != NULL; celula = celula->proximo){
+	for(celula = primeiraLista->primeiro->proximo; celula != NULL; celula = celula->proximo){
 		if(celula->item.chave == valor){
 			segundaLista->primeiro->proximo = celula->proximo;
-			/*celula->proximo = NULL;
-			lista->ultimo = celula;*/
+			celula->proximo = NULL;
+			primeiraLista->ultimo = celula;
 			break;
 		}
 	}
 
-	return segundaLista;
+	listasDividas[0] = primeiraLista;
+	listasDividas[1] = segundaLista;
+
+	return listasDividas;
 }

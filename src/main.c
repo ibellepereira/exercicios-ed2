@@ -2,117 +2,117 @@
 
 int main(void) {
 	const int QTD_ITEMS = 10;
-	const int RANGE = 50;
+	const int RANGE = 10;
 
-	 // |
-	 // | EXERCICIO 09
-	 // |
+	// |
+	// | EXERCICIO 09
+	// |
 
-	 printf("==== EXERCÍCIO 9 ====\n");
-	 TipoLista* lista = criaListaPopulada(QTD_ITEMS);
-	 printf("Lista:\n");
-	 imprimeLista(lista);
-	 printf("\nSegunda Lista: \n");
-	 imprimeLista(divideLista(lista, 0));
+	printf("==== EXERCÍCIO 9 ====\n");
+	TipoLista* lista = criaListaPopulada(QTD_ITEMS);
+	TipoLista** listaDividas = divideLista(lista, 0);
 
-	 printf("\n\n\n");
+	printf("Lista:\n");
+	imprimeLista(lista);
+	printf("\nPrimeira Lista: \n");
+	imprimeLista(listaDividas[0]);
+	printf("\nSegunda Lista: \n");
+	imprimeLista(listaDividas[1]);
 
+	printf("\n\n\n");
 
-	 srand(time(NULL));
+	srand(time(NULL));
 
+	// |
+	// | EXERCICIO 14
+	// |
 
-	 // |
-	 // | EXERCICIO 14
-	 // |
+	printf("==== EXERCÍCIO 14 ====\n");
+	TipoLista* lista2 = criaListaPopulada(QTD_ITEMS);
+	printf("Lista:\n");
+	imprimeLista(lista2);
+	printf("\nLista com nós invertidos: \n");
+	imprimeLista(inverteCelulas(lista2, rand() % RANGE, rand() % RANGE));
 
-	 printf("==== EXERCÍCIO 14 ====\n");
-	 TipoLista* lista2 = criaListaPopulada(QTD_ITEMS);
-	 printf("Lista:\n");
-	 imprimeLista(lista2);
-	 printf("\nLista com nós invertidos: \n");
-	 imprimeLista(inverteCelulas(lista2, rand()%RANGE, rand()%RANGE));
-
-	 printf("\n\n\n");
+	printf("\n\n\n");
 
 	// |
 	// | EXERCICIO 15
 	// |
-		printf("==== EXERCÍCIO 15 ====\n");
-	 int i;
 
-	 printf("-- lista circular --\n\n");
-	 TipoLista* listaCircular = criaListaPopulada(0);
+	printf("==== EXERCÍCIO 15 ====\n");
+	int i;
 
-	 for (i = 0; i < QTD_ITEMS; i++) {
-	 insereListaCircular(listaCircular, criaItem());
-	 }
+	printf("-- lista circular --\n\n");
+	TipoLista* listaCircular = criaListaPopulada(0);
 
-	 printf("Lista:\n");
-	 imprimeListaEncadeada(listaCircular);
+	for (i = 0; i < QTD_ITEMS; i++) {
+		insereListaCircular(listaCircular, criaItem());
+	}
 
-	 printf("\nLista após remoção: \n");
-	 removeListaCircularPorPos(listaCircular, rand()%RANGE);
-	 imprimeListaEncadeada(listaCircular);
+	printf("Lista:\n");
+	imprimeListaEncadeada(listaCircular);
 
-	 printf("\n\n");
+	printf("\nLista após remoção: \n");
+	removeListaCircularPorPos(listaCircular, rand() % RANGE);
+	imprimeListaEncadeada(listaCircular);
 
-	 printf("-- lista duplamente encadeada --\n\n");
-	 TipoLista* listaDupla = criaListaPopulada(0);
+	printf("\n\n");
 
-	 for (i = 0; i < QTD_ITEMS; i++) {
-	 insereListaDuplamenteEncadeada(listaDupla, criaItem());
-	 }
+	printf("-- lista duplamente encadeada --\n\n");
+	TipoLista* listaDupla = criaListaPopulada(0);
 
-	 printf("Lista:\n");
-	 imprimeListaEncadeada(listaDupla);
-	 removeListaDuplamenteEncadeadaPorPos(listaDupla, rand()%RANGE);
-	 printf("\nLista após remoção: \n");
-	 imprimeListaEncadeada(listaDupla);
+	for (i = 0; i < QTD_ITEMS; i++) {
+		insereListaDuplamenteEncadeada(listaDupla, criaItem());
+	}
 
-	 printf("\n\n");
+	printf("Lista:\n");
+	imprimeListaEncadeada(listaDupla);
+	removeListaDuplamenteEncadeadaPorPos(listaDupla, rand() % RANGE);
+	printf("\nLista após remoção: \n");
+	imprimeListaEncadeada(listaDupla);
+
+	printf("\n\n");
 
 	printf("-- lista circular duplamente encadeada --\n\n");
-	 TipoLista* listaCircularDupla = criaListaPopulada(0);
-	 for (i = 0; i < QTD_ITEMS; i++) {
-	 insereListaCircularDuplamenteEncadeada(listaCircularDupla, criaItem());
-	 }
+	TipoLista* listaCircularDupla = criaListaPopulada(0);
+	for (i = 0; i < QTD_ITEMS; i++) {
+		insereListaCircularDuplamenteEncadeada(listaCircularDupla, criaItem());
+	}
 
-	 printf("Lista:\n");
-	 imprimeListaEncadeada(listaCircularDupla);
-	 removeListaCircularDuplamenteEncadeadaPorPos(listaCircularDupla, rand()%RANGE);
-	 printf("\nLista após remoção: \n");
-	 imprimeListaEncadeada(listaCircularDupla);
-	 printf("\n\n\n");
+	printf("Lista:\n");
+	imprimeListaEncadeada(listaCircularDupla);
+	removeListaCircularDuplamenteEncadeadaPorPos(listaCircularDupla,
+			rand() % RANGE);
+	printf("\nLista após remoção: \n");
+	imprimeListaEncadeada(listaCircularDupla);
+	printf("\n\n\n");
 
+	// |
+	// | EXERCICIO 15
+	// |
 
-	 // |
-	 // | EXERCICIO 15
-	 // |
+	printf("==== EXERCÍCIO 18 ====\n");
+	TipoPilha* pilha = criaPilhaPopulada(QTD_ITEMS);
+	printf("Pilha:\n");
+	imprimePilha(pilha);
+	printf("\nPilha ordenada por inserção: \n");
+	imprimePilhaPorInsercao(pilha);
 
+	printf("\n\n\n");
 
-	 printf("==== EXERCÍCIO 18 ====\n");
-	 TipoPilha* pilha = criaPilhaPopulada(QTD_ITEMS);
-	 printf("Pilha:\n");
-	 imprimePilha(pilha);
-	 printf("\nPilha ordenada por inserção: \n");
-	 imprimePilhaPorInsercao(pilha);
+	// |
+	// | EXERCICIO 22
+	// |
 
-	 printf("\n\n\n");
+	printf("==== EXERCÍCIO 22 ====\n");
+	TipoFila* fila = criaFilaPopulada(QTD_ITEMS);
+	printf("Fila:\n");
+	imprimeFila(fila);
+	printf("\nFila Invertida: \n");
+	imprimeFila(inverteFila(fila));
 
-	 // |
-	 // | EXERCICIO 22
-	 // |
+	printf("\n\n\n");
 
-
-	 printf("==== EXERCÍCIO 22 ====\n");
-	 TipoFila* fila = criaFilaPopulada(QTD_ITEMS);
-	 printf("Fila:\n");
-	 imprimeFila(fila);
-	 printf("\nFila Invertida: \n");
-	 imprimeFila(inverteFila(fila));
-
-	 printf("\n\n\n");
-
-
-	 return 1;
+	return 1;
 }
