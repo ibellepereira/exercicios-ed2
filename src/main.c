@@ -2,7 +2,9 @@
 
 int main(void) {
 	const int QTD_ITEMS = 10;
-	const int RANGE = 10;
+	const int RANGE = 11;
+	srand(time(NULL));
+	int i;
 
 	// |
 	// | EXERCICIO 09
@@ -10,9 +12,11 @@ int main(void) {
 
 	printf("==== EXERCÍCIO 9 ====\n");
 	TipoLista* lista = criaListaPopulada(QTD_ITEMS);
-	TipoLista** listaDividas = divideLista(lista, 0);
+	i = rand()%RANGE;
 
-	printf("Lista:\n");
+	TipoLista** listaDividas = divideListaAtPos(lista, i);
+
+	printf("Indice: %i\tLista:\n", i);
 	imprimeLista(lista);
 	printf("\nPrimeira Lista: \n");
 	imprimeLista(listaDividas[0]);
@@ -20,8 +24,6 @@ int main(void) {
 	imprimeLista(listaDividas[1]);
 
 	printf("\n\n\n");
-
-	srand(time(NULL));
 
 	// |
 	// | EXERCICIO 14
@@ -41,8 +43,6 @@ int main(void) {
 	// |
 
 	printf("==== EXERCÍCIO 15 ====\n");
-	int i;
-
 	printf("-- lista circular --\n\n");
 	TipoLista* listaCircular = criaListaPopulada(0);
 

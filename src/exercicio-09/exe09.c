@@ -27,3 +27,26 @@ TipoLista** divideLista(TipoLista* lista, int valor){
 
 	return listasDividas;
 }
+
+TipoLista** divideListaAtPos(TipoLista* lista, int pos) {
+	TipoLista** listasDividas = (TipoLista**) malloc(sizeof(TipoLista*) * 2);
+
+	TipoLista* primeiraLista = clonaLista(lista);
+	TipoLista* segundaLista = criaListaPopulada(0);
+
+	TipoCelula* celula;
+	int i;
+	for (i = 0, celula = primeiraLista->primeiro->proximo; i<=pos && celula != NULL; i++, celula = celula->proximo) {
+		if (i == pos) {
+			segundaLista->primeiro->proximo = celula->proximo;
+			celula->proximo = NULL;
+			primeiraLista->ultimo = celula;
+			break;
+		}
+	}
+
+	listasDividas[0] = primeiraLista;
+	listasDividas[1] = segundaLista;
+
+	return listasDividas;
+}
