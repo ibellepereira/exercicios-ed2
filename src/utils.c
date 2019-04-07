@@ -52,6 +52,19 @@ TipoFila* criaFilaPopulada(int qtd) {
 	return fila;
 }
 
+TipoFila* clonaFila(TipoFila* fila){
+	TipoFila* clone = (TipoFila*) malloc(sizeof(TipoFila));
+	criaFilaVazia(clone);
+
+	TipoCelula* celula;
+	for (celula = fila->frente->proximo; celula != NULL;
+			celula = celula->proximo) {
+		insereFila(clone, celula->item);
+	}
+
+	return clone;
+}
+
 TipoItem criaItem() {
 	TipoItem item;
 	item.chave = rand() % 100;
